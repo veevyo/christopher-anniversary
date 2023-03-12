@@ -1,0 +1,127 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://media/vivi1.png" type="Texture" id=2]
+[ext_resource path="res://media/viviflustered1.png" type="Texture" id=3]
+[ext_resource path="res://media/viviflustered2.png" type="Texture" id=4]
+[ext_resource path="res://media/viviflustered11.png" type="Texture" id=5]
+[ext_resource path="res://media/vivicover1.png" type="Texture" id=6]
+[ext_resource path="res://media/vivicover2.png" type="Texture" id=7]
+[ext_resource path="res://media/vivi8.png" type="Texture" id=8]
+[ext_resource path="res://media/viviflustered12.png" type="Texture" id=9]
+[ext_resource path="res://media/viviflustered9.png" type="Texture" id=10]
+[ext_resource path="res://media/viviflustered8.png" type="Texture" id=11]
+[ext_resource path="res://media/viviflustered7.png" type="Texture" id=12]
+[ext_resource path="res://media/viviflustered13.png" type="Texture" id=13]
+[ext_resource path="res://media/viviflustered6.png" type="Texture" id=14]
+[ext_resource path="res://media/viviflustered5.png" type="Texture" id=15]
+[ext_resource path="res://media/viviflustered3.png" type="Texture" id=16]
+[ext_resource path="res://media/viviflustered4.png" type="Texture" id=17]
+[ext_resource path="res://media/viviflustered10.png" type="Texture" id=18]
+[ext_resource path="res://media/viviflustered14.png" type="Texture" id=19]
+[ext_resource path="res://media/vivisit1.png" type="Texture" id=20]
+[ext_resource path="res://media/vivisit2.png" type="Texture" id=21]
+[ext_resource path="res://media/vivisit3.png" type="Texture" id=22]
+[ext_resource path="res://media/vivisit4.png" type="Texture" id=23]
+[ext_resource path="res://media/vivicover3.png" type="Texture" id=24]
+[ext_resource path="res://media/vivicover4.png" type="Texture" id=25]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "blink",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "coveredup",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "flustered",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "sit",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "stand",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 39.5, 36 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16.5, 27.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 17, 28.25 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 15, 15.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 15, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 43, 18.5 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Ian" type="AnimatedSprite" parent="."]
+position = Vector2( 55, 86 )
+frames = SubResource( 1 )
+animation = "stand"
+frame = 5
+
+[node name="face" type="Area2D" parent="Ian"]
+
+[node name="face" type="CollisionShape2D" parent="Ian/face"]
+position = Vector2( -5, -46 )
+shape = SubResource( 2 )
+
+[node name="arms" type="Area2D" parent="Ian"]
+
+[node name="leftarm" type="CollisionShape2D" parent="Ian/arms"]
+position = Vector2( -36, 19.5 )
+shape = SubResource( 3 )
+
+[node name="rightarm" type="CollisionShape2D" parent="Ian/arms"]
+position = Vector2( 29, 18.75 )
+shape = SubResource( 4 )
+
+[node name="chest" type="Area2D" parent="Ian"]
+
+[node name="chest" type="CollisionShape2D" parent="Ian/chest"]
+position = Vector2( -4, 6.5 )
+shape = SubResource( 5 )
+
+[node name="crotch" type="Area2D" parent="Ian"]
+
+[node name="crotch" type="CollisionShape2D" parent="Ian/crotch"]
+position = Vector2( -4, 34.5 )
+shape = SubResource( 6 )
+
+[node name="legs" type="Area2D" parent="Ian"]
+
+[node name="legs" type="CollisionShape2D" parent="Ian/legs"]
+position = Vector2( -3, 66.5 )
+shape = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="input_event" from="Ian/face" to="." method="_on_face_input_event"]
+[connection signal="input_event" from="Ian/arms" to="." method="_on_arms_input_event"]
+[connection signal="input_event" from="Ian/chest" to="." method="_on_chest_input_event"]
+[connection signal="input_event" from="Ian/crotch" to="." method="_on_crotch_input_event"]
+[connection signal="input_event" from="Ian/legs" to="." method="_on_legs_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
