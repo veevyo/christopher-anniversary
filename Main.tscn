@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://media/vivi1.png" type="Texture" id=2]
@@ -25,6 +25,21 @@
 [ext_resource path="res://media/vivisit4.png" type="Texture" id=23]
 [ext_resource path="res://media/vivicover3.png" type="Texture" id=24]
 [ext_resource path="res://media/vivicover4.png" type="Texture" id=25]
+[ext_resource path="res://media/viviwave4.png" type="Texture" id=26]
+[ext_resource path="res://media/viviwave5.png" type="Texture" id=27]
+[ext_resource path="res://media/viviwave6.png" type="Texture" id=28]
+[ext_resource path="res://media/viviwave1.png" type="Texture" id=29]
+[ext_resource path="res://media/viviwave2.png" type="Texture" id=30]
+[ext_resource path="res://media/viviwave3.png" type="Texture" id=31]
+[ext_resource path="res://media/viviwavetransparent2.png" type="Texture" id=32]
+[ext_resource path="res://media/viviwavetransparent1.png" type="Texture" id=33]
+[ext_resource path="res://media/viviwavetransparent7.png" type="Texture" id=34]
+[ext_resource path="res://media/viviwavetransparent8.png" type="Texture" id=35]
+[ext_resource path="res://media/viviwavetransparent6.png" type="Texture" id=36]
+[ext_resource path="res://media/viviwavetransparent9.png" type="Texture" id=37]
+[ext_resource path="res://media/viviwavetransparent3.png" type="Texture" id=38]
+[ext_resource path="res://media/viviwavetransparent5.png" type="Texture" id=39]
+[ext_resource path="res://media/viviwavetransparent4.png" type="Texture" id=40]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -38,9 +53,24 @@ animations = [ {
 "name": "coveredup",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 38 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "fadeinwave",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "flustered",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "regularwave",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "shortwave",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
@@ -78,8 +108,7 @@ script = ExtResource( 1 )
 [node name="Ian" type="AnimatedSprite" parent="."]
 position = Vector2( 55, 86 )
 frames = SubResource( 1 )
-animation = "stand"
-frame = 5
+animation = "fadeinwave"
 
 [node name="face" type="Area2D" parent="Ian"]
 
@@ -116,7 +145,7 @@ position = Vector2( -3, 66.5 )
 shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="input_event" from="Ian/face" to="." method="_on_face_input_event"]
